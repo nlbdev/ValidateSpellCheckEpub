@@ -12,12 +12,12 @@ namespace ValidateSpellCheckEpub
         public static string Global_error = "";//---use for global error
         public static string ReportFile = "Report.txt";//---use for global error
 
-        //public static string BooksFolderPath = @"D:\NLBPUB\";// \\128.39.251.205\Arkiv\master\NLBPUB
+        //public static string BooksFolderPath = @"D:\NLBPUB\";
         public static string fullPath = Directory.GetCurrentDirectory();
         //public static string fullPath = @"C:\script\bokbasen\";
         public static string BooksFolderPath = fullPath + @"\Epub\";
         public static string ReportOutputFolderPath = fullPath + @"\report\";
-        //public static string ReportOutputFolderPath = @"\\nlb-script\report\";
+        //public static string ReportOutputFolderPath = @"\\nlb-script\report\";        
         public static HashSet<string> AllBookLanguages = new HashSet<string>();
 
         public static string Current_bookInformasjon = "";
@@ -38,7 +38,8 @@ namespace ValidateSpellCheckEpub
             Check CheckObject = new Check(); // declearing  Check class object 
             try
             {
-              // CheckObject.Make_Dictionary();
+                CheckObject.DownloadFiles();
+                // CheckObject.Make_Dictionary();
 
                CheckObject.GetFiles();
                

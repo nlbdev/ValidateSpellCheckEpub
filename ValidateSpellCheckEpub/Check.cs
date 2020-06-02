@@ -107,6 +107,46 @@ namespace ValidateSpellCheckEpub
             }// catch end
         }
 
+        /*
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@                              Method                                                                @@@@
+  @@@@****************************GetFiles  ******************************************************@@@@
+  @@@@                                                                                                    @@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  */
+
+        public void DownloadFiles()
+        {
+            try
+            {
+                string GitFilesFolderUrl = "https://github.com/nlbdev/ValidateSpellCheckEpub/raw/master/ValidateSpellCheckEpub/custom_files/";                
+
+                string[] FilesForWords = { "CustomWords-en_US.txt", "CustomWords-nb_NO.txt", "unicode_Signs.txt" };
+
+                foreach (string Filename in FilesForWords)
+                {
+                    string fileName = Filename, myStringWebResource = null;
+                    // Create a new WebClient instance.
+                    WebClient myWebClient = new WebClient();
+                    // Concatenate the domain with the Web resource filename.
+                    myStringWebResource = GitFilesFolderUrl + fileName;
+                    myWebClient.DownloadFile(myStringWebResource, @"custom_files\" + fileName);
+                    Console.WriteLine("Successfully Downloaded File \"{0}\" from \"{1}\"", fileName, myStringWebResource);
+                }
+
+               
+                
+            }// try end
+            catch (Exception e)
+            {
+                string error = "\n \nError in download files";
+                Console.WriteLine(error + e);
+                Program.Global_error = Program.Global_error + error + e;
+            }// catch end
+        }
+
 
 
 

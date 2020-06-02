@@ -38,12 +38,9 @@ namespace ValidateSpellCheckEpub
             Check CheckObject = new Check(); // declearing  Check class object 
             try
             {
-                CheckObject.DownloadFiles();
                 // CheckObject.Make_Dictionary();
-
-               CheckObject.GetFiles();
-               
-
+                CheckObject.DownloadFiles();                
+                CheckObject.GetFiles();
             }
             catch (Exception e)
             {

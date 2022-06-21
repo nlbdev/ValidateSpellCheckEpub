@@ -1,5 +1,6 @@
-# SpellCheck Epub
-This is code for  SpellCheck of Epub files 
+# SpellCheck Epub ("Logisk sjekk")
+
+This is code for SpellCheck of Epub files 
 
 ## Windows
 - Clone this repository.
